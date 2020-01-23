@@ -1,15 +1,41 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-import logo from "./img/logo.png";
 import WeatherInfo from "./components/WeatherInfo";
 import WeatherForm from "./components/WeatherForm";
+import github from './img/github.png'
 
-const Img = styled.img`
-  height: 60px;
-  weight: 100px;
-  margin-right: 40px;
+const Nav = styled.nav`
+  height: 70px;
+  weight: 100%;
+  background-color:#20232a;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  h1{
+  font-size:30px;
+  font-family:IBrushstroke, fantasy;
+  color:#61dafb;
+  }
 `;
+const Div = styled.div`
+  width:100%;
+  height:auto;
+  display:flex;
+  justify-content:flex-end;
+  margin-top:10px;
+  img{
+    width:40px;
+    height:40px;
+    margin-right:20px;
+  }
+  p{
+    margin-top:10px;
+    margin-right:5px;
+    color:#20232a;
+  }
+`
 
 import { WEATHER_KEY } from "./keys";
 
@@ -53,16 +79,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a className="navbar-brand" href="/">
-            Welcome
-          </a>
-          <h1 className="navbar-brand">
-            {" "}
-            <Img src={logo}></Img>{" "}
-          </h1>
-        </nav>
-        <p className="description">The weather forecast with JdbWeather !!</p>
+        <Nav>
+          <h1>JdbWeather</h1>
+        </Nav>
+        <p className="description">The weather forecast with JdbWeather</p>
 
         <div className="row">
           <div className="col-md-4 mx-auto">
@@ -70,6 +90,7 @@ class App extends Component {
             <WeatherInfo {...this.state} />
           </div>
         </div>
+        <Div><p>Source code:</p><a href="https://github.com/jhosep98/Weather-con-Reactjs" target='blank'><img src={github}></img></a></Div>
       </div>
     );
   }
